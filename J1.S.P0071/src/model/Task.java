@@ -17,9 +17,22 @@ public class Task {
     private double planTo;
     private String assignee;
     private String reviewer;
-
+    
     public Task() {
     }
+
+    public Task(int id, int taskTypeId, String requirementName, String date, double planFrom, double planTo, String assignee, String reviewer) {
+        this.id = id;
+        this.taskTypeId = taskTypeId;
+        this.requirementName = requirementName;
+        this.date = date;
+        this.planFrom = planFrom;
+        this.planTo = planTo;
+        this.assignee = assignee;
+        this.reviewer = reviewer;
+    }
+    
+    
 
     public String convertIntIntoString(int taskTypeId){
         switch (taskTypeId) {
@@ -34,6 +47,22 @@ public class Task {
             default:
                 throw new AssertionError();
         }
+    }
+    
+    public int convertStringIntoInt(String str){
+        if(str.compareTo("Code") == 0){
+            return 1;
+        }
+        if(str.compareTo("Test") == 0){
+            return 2;
+        }
+        if(str.compareTo("Design") == 0){
+            return 3;
+        }
+        if(str.compareTo("Review") == 0){
+            return 4;
+        }
+        return -1;
     }
     
     public int getId() {
@@ -101,10 +130,12 @@ public class Task {
         this.reviewer = reviewer;
     }
 
+    
+    
     @Override
     public String toString() {
         return String.format("%-5d %-10s %-10s %-15s %-10.1f %-10s %-10s",
-                       id, requirementName , convertIntIntoString(taskTypeId), date,
+                       id, requirementName , this.getTaskTypeId() , date,
                        planTo - planFrom, assignee, reviewer);
     }
     
