@@ -19,7 +19,7 @@ public class GetInputData {
         String input;
 
         do {
-            System.out.println(msg);
+            System.out.print(msg);
             input = sc.nextLine();
             if (input.isEmpty()) {
                 System.out.println("The choice could not be empty");
@@ -33,17 +33,17 @@ public class GetInputData {
                                 base = 2;
                                 break;
                             case 2:
-                                base = 2;
+                                base = 10;
                                 break;
                             case 3:
-                                base = 2;
+                                base = 16;
                                 break;
                             case 4:
                                 System.exit(0);
                                 break;
                         }
                         // Check value of variable baseIn with the base is chosen by user
-                        if (baseIn == base) {
+                        if (base == baseIn) {
                             System.out.println("Base output could not same base input");
                             continue;
                         } else {
@@ -79,7 +79,7 @@ public class GetInputData {
                 break;
         }
         do {
-            System.out.println(msg);
+            System.out.print(msg);
             input = sc.nextLine();
             if(input.isEmpty()){
                 System.out.println("Input could not be empty. Please input string non-empty!!!");
