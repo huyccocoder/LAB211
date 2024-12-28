@@ -1,5 +1,11 @@
+package view;
+
 public class Display {
-    public void display(){
+    public Display(){
+        
+    }
+    
+    public static void display(){
         System.out.println("---------- Login Program ----------");
         System.out.println("1. Vietnamese");
         System.out.println("2. English");
