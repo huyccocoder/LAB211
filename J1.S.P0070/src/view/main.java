@@ -19,7 +19,7 @@ public class main {
 //        Display Menu
         display.display();
 //        Input Choice
-        int choice = getdata.getChoice("Please choice one option", 1, 4);
+        int choice = getdata.getChoice("Please choice one option: ", 1, 4);
         switch (choice) {
             case 1:
                 

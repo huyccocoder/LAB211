@@ -19,7 +19,7 @@ public class GetData {
         int choice = 0;
         do {
             try {
-                System.out.println(msg);
+                System.out.print(msg);
                 input = sc.nextLine();
                 
                 if (input.isEmpty()) {
