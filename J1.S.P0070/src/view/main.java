@@ -5,6 +5,7 @@
 package view;
 
 import ultis.GetData;
+import controller.*;
 
 /**
  *
@@ -15,6 +16,7 @@ public class main {
     public static void main(String[] args) {
         Display display = new Display();
         GetData getdata = new GetData();
+        LoginSystem loginSystem = new LoginSystem();
 
 //        Display Menu
         display.display();
@@ -22,10 +24,10 @@ public class main {
         int choice = getdata.getChoice("Please choice one option: ", 1, 4);
         switch (choice) {
             case 1:
-                
+                loginSystem.loginSystemVietNam();
                 break;
             case 2:
-
+                loginSystem.loginSystemEnglish();
                 break;
             case 3:
                 System.exit(0);

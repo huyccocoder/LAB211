@@ -42,23 +42,22 @@ public class GetData {
         return choice;
     }
 
-    public String getAccount(String msg, String errorFormat){
+    public String getAccount(String msg, String errorFormat) {
         String input = "";
 
         do {
             try {
-                System.out.println(msg);
+                System.out.print(msg);
                 input = sc.nextLine();
-    
+
                 if (input.isEmpty()) {
                     System.out.println("Empty string. Please again input non-empty string");
                     continue;
                 }
-    
-                if(input.matches("^[0-9]{10}")){
+
+                if (input.matches("^[0-9]{10}")) {
                     return input;
-                }
-                else{
+                } else {
                     System.out.println(errorFormat);
                     continue;
                 }
@@ -69,28 +68,44 @@ public class GetData {
         } while (true);
     }
 
-    public String getPassword(String msg, String errPassword){
+    public String getPassword(String msg, String errPassword) {
         String result = "";
         do {
             try {
-                System.out.println(msg);
+                System.out.print(msg);
                 result = sc.nextLine();
                 if (result.isEmpty()) {
                     System.out.println("Empty string. Please again input non-empty string");
                     continue;
                 }
 
-                if(result.length() >= 8 && result.length() <= 31){
-                    if(result.matches("[]")){
-                        
+                if (result.length() >= 8 && result.length() <= 31) {
+                    if (result.matches("^[a-zA-Z0-9]*(([a-zA-Z]+[0-9]+)|[0-9]+[a-zA-Z]+)[a-zA-Z0-9]$")) {
+                        return result;
+                    } else {
+                        throw new Exception();
                     }
-                }
-                else{
+                } else {
                     throw new Exception();
                 }
             } catch (Exception e) {
                 System.out.println(errPassword);
             }
         } while (true);
+    }
+
+    public String getCaptcha(String msg, String errCaptcha) {
+        String result;
+        System.out.print(msg);
+        result = sc.nextLine();
+        try {
+
+            if (result.isEmpty()) {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println(errCaptcha);
+        }
+        return result;
     }
 }
