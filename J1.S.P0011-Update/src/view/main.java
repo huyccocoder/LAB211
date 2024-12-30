@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.Convert;
 import ultis.InputData;
 
 /**
@@ -14,10 +15,17 @@ public class main {
     public static void main(String[] args) {
         Display display = new Display();
         InputData inputData = new InputData();
+        Convert convert = new Convert();
 
         display.display();
 
         int inputBase = inputData.getBase("Input base: ", 1, 4, 0);
         int outputBase = inputData.getBase("Output Base: ", 1, 4, inputBase);
+
+        String inputString = inputData.geString("Input value: ", inputBase);
+        
+        String result = convert.convert(inputBase, outputBase, inputString);
+
+        display.resultConvert(result);
     }
 }
