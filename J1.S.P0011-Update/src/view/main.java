@@ -17,6 +17,10 @@ public class main {
         InputData inputData = new InputData();
         Convert convert = new Convert();
 
+        // String a = "12345";
+        // int num = a.indexOf(a.charAt(0));
+        // System.out.println(num);
+
         display.display();
 
         int inputBase = inputData.getBase("Input base: ", 1, 4, 0);

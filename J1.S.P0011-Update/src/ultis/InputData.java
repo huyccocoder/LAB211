@@ -93,16 +93,18 @@ public class InputData {
                             result = input;
                         } else {
                             System.out.println("Decimal only input 0 and 9");
+                            continue;
                         }
                     case 16:
                         if (input.matches("^[a-fA-F0-9]+$")) {
                             result = input;
                         } else {
-                            System.out.println("Decimal only input 0 and 9");
+                            System.out.println("Hexadecimal only input 0 and 9 and a to f");;
+                            continue;
                         }
                 }
 
-                return result.toLowerCase();
+                return result.toUpperCase();
             } catch (Exception e) {
                 System.out.println("Format invalid. Please input again");
             }
