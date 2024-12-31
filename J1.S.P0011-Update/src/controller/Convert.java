@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class Convert {
 
-    String stringValue = "0123456789ABCDEF";
+    String stringValueHex = "0123456789ABCDEF";
 
     public String convert(int inputBase, int outputBase, String inputString) {
         String result = "";
@@ -77,6 +77,21 @@ public class Convert {
     }
     
     public String decimalConvertIntoOther(int outputBase, String valueString){
-        
+        BigInteger numberIn = new BigInteger(valueString);
+        BigInteger ouputBase_String = new BigInteger(Integer.toString(outputBase));
+        StringBuilder result = new StringBuilder();
+
+        while (true) {
+            if(!numberIn.equals(new BigInteger("0"))){
+                BigInteger remainder = numberIn.remainder(ouputBase_String);
+                char number = stringValueHex.charAt(remainder.intValue());
+
+                result.append(number);
+                numberIn = numberIn.divide(ouputBase_String);
+            }
+            else{
+                return result.reverse().toString();
+            }
+        }
     }
 }
