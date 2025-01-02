@@ -4,10 +4,22 @@
  */
 package view;
 
+import ultis.GetDataInput;
+
 /**
  *
  * @author Admin
  */
 public class main {
-    
+    public static void main(String[] args) {
+        Display display = new Display();
+        GetDataInput getData = new GetDataInput();
+//        Show Menu
+        display.DisplayMenu();
+//        choose option
+        getData.inputChoice("Please choice one option: ", 1, 4);
+        
+        System.out.println(getData.inputPassWord("huy: ", "hahah"));
+        
+    }
 }
