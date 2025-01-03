@@ -19,7 +19,7 @@ public class main {
 //        choose option
         getData.inputChoice("Please choice one option: ", 1, 4);
         
-        System.out.println(getData.inputPassWord("huy: ", "hahah"));
+        System.out.println(getData.inputCaptcha("huy: ", "hahah"));
         
     }
 }

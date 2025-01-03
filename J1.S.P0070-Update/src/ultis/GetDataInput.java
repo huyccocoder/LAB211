@@ -91,4 +91,16 @@ public class GetDataInput {
             }
         } while (true);
     }
+
+    public String inputCaptcha(String msg, String invalidCaptcha){
+        String result = "";
+        try {
+            System.out.println(msg);
+            result = this.inputString();
+        } catch (Exception e) {
+            System.out.println(invalidCaptcha);
+        }
+        return result;
+    }
+
 }
