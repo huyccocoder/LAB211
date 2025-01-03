@@ -95,7 +95,7 @@ public class GetDataInput {
     public String inputCaptcha(String msg, String invalidCaptcha){
         String result = "";
         try {
-            System.out.println(msg);
+            System.out.print(msg);
             result = this.inputString();
         } catch (Exception e) {
             System.out.println(invalidCaptcha);

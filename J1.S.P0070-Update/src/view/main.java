@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.LoginSystem;
+import ultis.Create_HandleCaptcha;
 import ultis.GetDataInput;
 
 /**
@@ -14,12 +16,23 @@ public class main {
     public static void main(String[] args) {
         Display display = new Display();
         GetDataInput getData = new GetDataInput();
+        LoginSystem login = new LoginSystem();
+        Create_HandleCaptcha captcha = new Create_HandleCaptcha();
 //        Show Menu
         display.DisplayMenu();
 //        choose option
-        getData.inputChoice("Please choice one option: ", 1, 4);
+        int choice = getData.inputChoice("Please choice one option: ", 1, 4);
         
-        System.out.println(getData.inputCaptcha("huy: ", "hahah"));
-        
+        switch (choice) {
+            case 1:
+                login.loginSystem_VietNam();
+                break;
+            case 2:
+                login.loginSystem_English();
+                break;
+            case 3:
+                System.exit(0);
+                break;
+        }
     }
 }
