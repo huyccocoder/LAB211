@@ -4,6 +4,8 @@
  */
 package view;
 
+import bo.Manager;
+
 /**
  *
  * @author Admin
@@ -17,7 +19,12 @@ public class Display {
         System.out.println("4. Exit");
     }
     
-    public void displayMatrix(){
-        
+    public void displayMatrix(int[][] max1){
+        for (int i = 0; i < max1.length; i++) {
+            for (int j = 0; j < max1[0].length; j++) {
+                System.out.print("[" + max1[i][j] + "]" + " ");
+            }
+            System.out.println("");
+        }
     }
 }
