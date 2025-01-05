@@ -20,25 +20,26 @@ public class main {
 
         display.showMenu();
 
-        int[][] max1 = manager.getMatrix1();
-        // int[][] max2 = manager.getMatrix1();
+        int choice = getData.inputInt("Your choice: ", 1, 4);
+        String regex = "";
 
-        display.displayMatrix(max1);
-
-    //    int choice = getData.inputInt("Your choice: ", 1, 4);
-    //    int [][] arr1 = new int[choice][choice];
-    //    switch (choice) {
-    //        case 1:
-    //            System.out.println("---------- Addition ----------");
-               
-    //            break;
-    //        case 2:
-    //            break;
-    //        case 3:
-    //            break;
-    //        case 4:
-    //            System.exit(0);
-    //            break;
-    // }
-}
+        switch (choice) {
+            case 1:
+                regex = "+";
+                int[][] max1 = manager.getMatrix1();
+                int[][] max2 = manager.getMatrix2(max1, regex);
+        
+                display.displayMatrix(max1, max2, regex);
+                break;
+            case 2:
+                regex = "-";
+                break;
+            case 3:
+                regex = "*";
+                break;
+            case 4:
+                System.exit(0);
+                break;
+        }
+    }
 }
