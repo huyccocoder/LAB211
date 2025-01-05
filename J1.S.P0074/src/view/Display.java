@@ -19,19 +19,10 @@ public class Display {
         System.out.println("4. Exit");
     }
     
-    public void displayMatrix(int[][] matrix1, int[][] matrix2, String regex){
+    public void displayMatrix(int[][] matrix1){
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1[0].length; j++) {
                 System.out.print("[" + matrix1[i][j] + "]" + " ");
-            }
-            System.out.println("");
-        }
-
-        System.out.println(regex);
-
-        for (int i = 0; i < matrix2.length; i++) {
-            for (int j = 0; j < matrix2[0].length; j++) {
-                System.out.print("[" + matrix2[i][j] + "]" + " ");
             }
             System.out.println("");
         }
