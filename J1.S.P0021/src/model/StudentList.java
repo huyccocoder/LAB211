@@ -46,7 +46,7 @@ public class StudentList {
     }
     
     public boolean lengthTen(){
-        if(listStudent.size() >= 1){
+        if(listStudent.size() >= 5){
             return true;
         }
         return false;
