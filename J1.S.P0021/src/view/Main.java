@@ -25,6 +25,7 @@ public class Main {
                     controller.createStudent();
                     break;
                 case 2:
+                    controller.findAndSortStudent();
                     break;
                 case 3:
                     break;

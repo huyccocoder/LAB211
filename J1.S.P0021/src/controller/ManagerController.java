@@ -4,6 +4,8 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import model.Student;
 import model.StudentList;
 import ultis.GetDataInput;
 
@@ -30,7 +32,7 @@ public class ManagerController {
             String semester = getData.checkInputSemester("Input semester: ");
             String course = getData.checkInputCourse("Input course: ");
             
-            int result = list.addStudent(0, semester, semester, course);
+            int result = list.addStudent(0, nameStudent, semester, course);
             if(result != -1){
                 System.out.println("Create successfully");
             }
@@ -40,6 +42,24 @@ public class ManagerController {
         } catch (Exception e) {
             System.out.println("Create failed");
         }
+    }
+    
+    public void findAndSortStudent(){
+        String input = getData.inputString("Enter name to search: ", ".+");
+        ArrayList<Student> listStudent = list.getDatabase();
+        
+        int check = -1;
+        for (Student student : listStudent) {
+            if(student.getStudentName().contains(input)){
+                System.out.println(student);
+                check = 1;
+            }
+        }
+        
+        if(check != 1){
+            System.out.println("Student not exist");
+        }
+        
     }
     
     public void printStudent(){

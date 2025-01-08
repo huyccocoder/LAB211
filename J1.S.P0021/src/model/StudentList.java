@@ -52,6 +52,10 @@ public class StudentList {
         return false;
     }
     
+    public ArrayList<Student> getDatabase(){
+        return listStudent;
+    }
+    
     public void printListStudent(){
         for (Student student : listStudent) {
             System.out.println(student);
