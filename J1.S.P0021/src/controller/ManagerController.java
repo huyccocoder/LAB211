@@ -68,6 +68,8 @@ public class ManagerController {
 
     }
 
+    
+    
     public void printStudent() {
         if (list.checkEmpty()) {
             System.err.println("List empty");
