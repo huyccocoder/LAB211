@@ -4,6 +4,7 @@
  */
 package ultis;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,9 +12,9 @@ import java.util.Scanner;
  * @author Admin
  */
 public class GetDataInput {
-
+    
     Scanner sc = new Scanner(System.in);
-
+    
     public String inputString() {
         do {
             String input = sc.nextLine();
@@ -25,8 +26,8 @@ public class GetDataInput {
             
         } while (true);
     }
-
-    public int inputChoice(String msg, int min, int max) {
+    
+    public int inputInt(String msg, int min, int max) {
         int value = 0;
         do {
             try {
@@ -43,64 +44,78 @@ public class GetDataInput {
             }
         } while (true);
     }
-
-    public String inputAccount(String msg, String invalidAccount) {
-        String result = "";
-        do {
+    
+    public String inputString(String msg, String regex) {
+        while (true) {            
             try {
                 System.out.print(msg);
                 String input = this.inputString();
-
-                if (input.length() == 10) {
-                    if (input.matches("^[0-9]+$")) {
-                        result = input;
-                    } else {
-                        throw new Exception();
-                    }
-                } else {
+                if (!input.matches(regex)) {
                     throw new Exception();
                 }
-                return result;
+                return input;
             } catch (Exception e) {
-                System.out.println(invalidAccount);
-            }
-        } while (true);
+                System.out.println("The string invalid. Please input again");
+            }            
+        }
     }
-
-    public String inputPassWord(String msg, String invalidPassword) {
-        String result = "";
-        do {
+    
+    public String checkInputCourse(String msg){
+        while (true) {            
             try {
                 System.out.print(msg);
-                String input = this.inputString();
-                
-                if(input.length() >= 8 && input.length() <= 31){
-                    if(input.matches("^(?=.*[a-zA-Z])(?=.*\\d)[0-9a-zA-Z]+$")){
-                        result = input;
-                    }
-                    else{
-                        throw new Exception();
-                    }
+                String input = inputString();
+                if(input.equalsIgnoreCase("java")
+                        ||input.equalsIgnoreCase(".net")
+                        || input.equalsIgnoreCase("c/c++")){
+                    return input;
                 }
                 else{
+                    System.out.println("The course must be Java, .Net, C/C++");
                     throw new Exception();
                 }
-                return result;
             } catch (Exception e) {
-                System.out.println(invalidPassword);
+                System.out.println("Invalid");
             }
-        } while (true);
-    }
-
-    public String inputCaptcha(String msg, String invalidCaptcha){
-        String result = "";
-        try {
-            System.out.print(msg);
-            result = this.inputString();
-        } catch (Exception e) {
-            System.out.println(invalidCaptcha);
         }
-        return result;
     }
-
+    
+    public String checkInputSemester(String msg){
+        while (true) {            
+            try {
+                System.out.print(msg);
+                String input = inputString();
+                if(input.equalsIgnoreCase("Summer")
+                        ||input.equalsIgnoreCase("Spring")
+                        || input.equalsIgnoreCase("Autumn")){
+                    return input;
+                }
+                else{
+                    System.out.println("The course must be Summer, Autumn, Spring");
+                    throw new Exception();
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid");
+            }
+        }
+    }
+    
+    public boolean checkYN(){
+        while (true) {            
+            try {
+                System.out.print("Do you want to continue (Y/N): ");
+                String input = this.inputString();
+                if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")){
+                    return true;
+                }
+                if(input.equalsIgnoreCase("n") || input.equalsIgnoreCase("no")){
+                    return false;
+                }
+                throw new Exception();
+            } catch (Exception e) {
+                System.err.println("User must input Y/N or Yes/No to continue");
+            } 
+        }
+    }
+    
 }

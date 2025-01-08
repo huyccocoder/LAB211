@@ -11,22 +11,17 @@ package model;
 public class Student {
     private int id;
     private String studentName;
-    private int semester;
-    private String coursseName;
+    private String semester;
+    private String course;
 
-    public Student(int id, String studentName, int semester, String coursseName) {
+    public Student(int id, String studentName, String semester, String course) {
         this.id = id;
         this.studentName = studentName;
         this.semester = semester;
-        this.coursseName = coursseName;
+        this.course = course;
     }
 
     public Student() {
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" + "id=" + id + ", studentName=" + studentName + ", semester=" + semester + ", coursseName=" + coursseName + '}';
     }
     
     public int getId() {
@@ -45,21 +40,27 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public int getSemester() {
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 
-    public String getCoursseName() {
-        return coursseName;
-    }
 
-    public void setCoursseName(String coursseName) {
-        this.coursseName = coursseName;
+    
+    public String getCourse() {
+        return course;
     }
     
+    public void setCourse(String course) {
+        this.course = course;
+    }
+    
+    @Override
+    public String toString() {
+        return "Student{" + "id=" + id + ", studentName=" + studentName + ", semester=" + semester + ", course=" + course + '}';
+    }
     
 }

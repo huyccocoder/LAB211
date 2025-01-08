@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.ManagerController;
 import ultis.GetDataInput;
 
 /**
@@ -14,20 +15,27 @@ public class Main {
     public static void main(String[] args) {
         Display display = new Display();
         GetDataInput getData = new GetDataInput();
-        display.showMenu();
-        
-        int choice  = getData.inputChoice("Your choice: ", 1, 5);
-        switch (choice) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
+        ManagerController controller = new ManagerController();
+  
+        while (true) {            
+            display.showMenu();
+            int choice = getData.inputInt("Your choice: ", 1, 5);
+            switch (choice) {
+                case 1:
+                    controller.createStudent();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    controller.printStudent();
+                    break;
+                case 5:
+                    System.exit(0);
+                    break;
+            }
         }
+        
     }
 }
