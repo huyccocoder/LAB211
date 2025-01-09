@@ -28,6 +28,7 @@ public class Main {
                     controller.findAndSortStudent();
                     break;
                 case 3:
+                    controller.updateOrDelete();
                     break;
                 case 4:
                     controller.printStudent();

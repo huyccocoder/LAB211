@@ -17,7 +17,29 @@ public class StudentList {
 
     public StudentList() {
         listStudent = new ArrayList<>();
-        this.lastID = 0;
+        listStudent.add(new Student(1, "huy", "summer", "java"));
+        listStudent.add(new Student(2, "hai", "autumn", "C/C++"));
+        listStudent.add(new Student(3, "cuowng", "spring", ".NET"));
+        this.lastID = 3;
+    }
+    
+    public int sizeOfStudent(){
+        return listStudent.size();
+    }
+    
+    public boolean checkEmpty() {
+        return listStudent.size() == 0;
+    }
+
+    public boolean lengthTen() {
+        if (listStudent.size() >= 5) {
+            return true;
+        }
+        return false;
+    }
+
+    public ArrayList<Student> getDatabase() {
+        return listStudent;
     }
 
     public int addStudent(int id, String studentName, String semester, String course) {
@@ -28,35 +50,27 @@ public class StudentList {
             student.setStudentName(studentName);
             student.setSemester(semester);
             student.setCourse(course);
-            
-            if(listStudent.add(student)){
+
+            if (listStudent.add(student)) {
                 return student.getId();
-            }
-            else{
-                throw  new Exception();
+            } else {
+                throw new Exception();
             }
         } catch (Exception e) {
             e.getMessage();
         }
         return -1;
     }
-    
-    public boolean checkEmpty(){
-        return listStudent.size() == 0;
+
+    public Student updateStudent(Student student, String studentName, String semester, String course){
+        student.setStudentName(studentName);
+        student.setSemester(semester);
+        student.setCourse(course);
+        
+        return student;
     }
     
-    public boolean lengthTen(){
-        if(listStudent.size() >= 5){
-            return true;
-        }
-        return false;
-    }
-    
-    public ArrayList<Student> getDatabase(){
-        return listStudent;
-    }
-    
-    public void printListStudent(){
+    public void printListStudent() {
         for (Student student : listStudent) {
             System.out.println(student);
         }

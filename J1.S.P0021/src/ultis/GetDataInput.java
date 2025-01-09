@@ -100,7 +100,7 @@ public class GetDataInput {
         }
     }
     
-    public boolean checkYN(){
+    public boolean checkYesOrNo(){
         while (true) {            
             try {
                 System.out.print("Do you want to continue (Y/N): ");
@@ -118,6 +118,22 @@ public class GetDataInput {
         }
     }
     
-    
+    public String checkUpdateOrDelete(String msg){
+        while (true) {            
+            try {
+                System.out.print(msg);
+                String input = this.inputString();
+                if(input.equalsIgnoreCase("u")){
+                    return input;
+                }
+                if(input.equalsIgnoreCase("d")){
+                    return input;
+                }
+            } catch (Exception e) {
+                System.err.println("User must input U/D to continue");
+                System.err.println("U allow user updating. D for deleting student");
+            }
+        }
+    }
     
 }

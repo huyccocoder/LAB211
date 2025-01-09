@@ -20,10 +20,23 @@ public class ManagerController {
 
     public ManagerController() {
     }
+    
+    public boolean isEmpty(){
+        if(list.checkEmpty()){
+            System.err.println("List empty");
+            return true;
+        }
+        return false;
+    }
 
     public void createStudent() {
+        
+        if(isEmpty()){
+            return;
+        }
+        
         if (list.lengthTen()) {
-            if (!getData.checkYN()) {
+            if (!getData.checkYesOrNo()) {
                 return;
             }
         }
@@ -45,12 +58,15 @@ public class ManagerController {
     }
 
     public void findAndSortStudent() {
+        if(isEmpty()){
+            return;
+        }
+        
         String input = getData.inputString("Enter name to search: ", ".+");
-        ArrayList<Student> listStudent = list.getDatabase();
         ArrayList<Student> tmp = new ArrayList<>();
 
         int check = -1;
-        for (Student student : listStudent) {
+        for (Student student : list.getDatabase()) {
             if (student.getStudentName().contains(input)) {
                 tmp.add(student);
                 check = 1;
@@ -65,17 +81,70 @@ public class ManagerController {
                 System.out.println(student);
             }
         }
-
     }
 
+    public Student findStudentById(int id){
+        
+        for (Student student : list.getDatabase()) {
+            if(student.getId() == id){
+                return student;
+            }
+        }
+        return null;
+    }
     
-    
-    public void printStudent() {
-        if (list.checkEmpty()) {
-            System.err.println("List empty");
+    public void updateStudent(int id){
+        if(isEmpty()){
             return;
         }
+        
+        Student updateStudent = findStudentById(id);
+        if(updateStudent != null){
+            String nameStudent = getData.inputString("Input newName: ", "([a-zA-Z\\s]+)");
+            String semester = getData.checkInputSemester("Input newSemester: ");
+            String course = getData.checkInputCourse("Input newCourse: ");
+            
+            Student update = list.updateStudent(updateStudent, nameStudent, semester, course);
+            System.out.println(update);
+        }
+        else{
+            System.err.println("Student not exist");
+        }
+    }
+    
+    public void deleteStudent(int id){
+        
+    }
+    
+    public void updateOrDelete() {
+        if(isEmpty()){
+            return;
+        }
+        
+        int input = getData.inputInt("Enter id: ", 0, list.sizeOfStudent());
 
+        Student searchStudent = this.findStudentById(input);
+        if(searchStudent != null){
+            System.out.println(searchStudent);
+        }
+        else{
+            System.err.println("Not found Student");
+            return;
+        }
+        
+        String checkUpdateOrDelete = getData.checkUpdateOrDelete("Do you want to update(U) or delete(D) student: ");
+        if(checkUpdateOrDelete.equalsIgnoreCase("u")){
+            updateStudent(input);
+        }
+        else{
+            deleteStudent(input);
+        }
+    }
+
+    public void printStudent() {
+        if(isEmpty()){
+            return;
+        }
         list.printListStudent();
     }
 }
