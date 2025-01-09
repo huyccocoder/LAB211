@@ -113,7 +113,13 @@ public class ManagerController {
     }
     
     public void deleteStudent(int id){
-        
+        Student deleteStudent = findStudentById(id);
+        if(list.deleteStudent(deleteStudent)){
+            System.out.println("Remove successfully");
+        }
+        else{
+            System.err.println("Remove failed");
+        }
     }
     
     public void updateOrDelete() {

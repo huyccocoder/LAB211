@@ -129,6 +129,7 @@ public class GetDataInput {
                 if(input.equalsIgnoreCase("d")){
                     return input;
                 }
+                throw new Exception();
             } catch (Exception e) {
                 System.err.println("User must input U/D to continue");
                 System.err.println("U allow user updating. D for deleting student");

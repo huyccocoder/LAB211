@@ -70,6 +70,13 @@ public class StudentList {
         return student;
     }
     
+    public boolean deleteStudent(Student student){
+        if(listStudent.remove(student)){
+            return true;
+        }
+        return false;
+    }
+    
     public void printListStudent() {
         for (Student student : listStudent) {
             System.out.println(student);
