@@ -45,6 +45,11 @@ public class ManagerController {
             String nameStudent = getData.inputString("Input Name: ", "([a-zA-Z\\s]+)");
             String semester = getData.checkInputSemester("Input semester: ");
             String course = getData.checkInputCourse("Input course: ");
+            
+            if(list.checkDuplicated(nameStudent, semester, course)){
+                System.err.println("The student is duplicated");
+                throw new Exception();
+            }
 
             int result = list.addStudent(0, nameStudent, semester, course);
             if (result != -1) {

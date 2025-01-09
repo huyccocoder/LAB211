@@ -41,6 +41,17 @@ public class StudentList {
     public ArrayList<Student> getDatabase() {
         return listStudent;
     }
+    
+    public boolean checkDuplicated(String nameStudent, String semester, String course){
+        for (Student student : listStudent) {
+            if(student.getStudentName().equalsIgnoreCase(nameStudent) 
+                    && student.getSemester().equalsIgnoreCase(semester)
+                    && student.getCourse().equalsIgnoreCase(course)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int addStudent(int id, String studentName, String semester, String course) {
         Student student = new Student();
