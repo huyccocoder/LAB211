@@ -60,7 +60,7 @@ public class Student {
     
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", studentName=" + studentName + ", semester=" + semester + ", course=" + course + '}';
+        return String.format("%-20s | %-10s", studentName, course);
     }
     
 }

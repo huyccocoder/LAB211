@@ -89,6 +89,7 @@ public class StudentList {
     }
     
     public void printListStudent() {
+        System.out.printf("%-20s | %-10s\n", "== STUDENT NAME ==", "== Course ==");
         for (Student student : listStudent) {
             System.out.println(student);
         }

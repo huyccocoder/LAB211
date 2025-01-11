@@ -110,6 +110,11 @@ public class ManagerController {
             String course = getData.checkInputCourse("Input newCourse: ");
             
             Student update = list.updateStudent(updateStudent, nameStudent, semester, course);
+
+            System.out.println("--------------- UPADTE ---------------");
+            System.out.println("---ID " + id + " have NOT UPDATED---");
+            System.out.println(updateStudent);
+            System.out.println("---ID " + id + " have UPDATED---");
             System.out.println(update);
         }
         else{
