@@ -5,6 +5,9 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import model.Student;
 import model.StudentList;
 import ultis.GetDataInput;
@@ -154,6 +157,16 @@ public class ManagerController {
         }
         else{
             deleteStudent(input);
+        }
+    }
+
+    // Report quantity course of Student
+    public void reportQuantityCourse(){
+        HashMap<String, Integer> report = list.getCountOfCourse();
+
+        System.out.println("The report as below: ");
+        for (Entry<String, Integer> student : report.entrySet()) {
+            System.out.printf("%-10s | %-5d\n", student.getKey(), student.getValue());
         }
     }
 

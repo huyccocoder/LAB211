@@ -5,6 +5,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -14,10 +15,13 @@ public class StudentList {
 
     ArrayList<Student> listStudent;
     private int lastID;
+    HashMap<String, Integer> quantityCourseOfStudent = new HashMap<>();
 
     public StudentList() {
         listStudent = new ArrayList<>();
         listStudent.add(new Student(1, "huy", "summer", "java"));
+        listStudent.add(new Student(1, "huy", "spring", "java"));
+        listStudent.add(new Student(1, "huy", "autumn", "java"));
         listStudent.add(new Student(2, "hai", "autumn", "C/C++"));
         listStudent.add(new Student(3, "cuowng", "spring", ".NET"));
         this.lastID = 3;
@@ -71,6 +75,15 @@ public class StudentList {
             e.getMessage();
         }
         return -1;
+    }
+
+    // Quantity Course of Student
+    public HashMap<String, Integer> getCountOfCourse(){
+        for (Student student : listStudent) {
+            quantityCourseOfStudent.put(student.getStudentName(), quantityCourseOfStudent.getOrDefault(student.getStudentName(), 0) + 1);
+        }
+
+        return quantityCourseOfStudent;
     }
 
     public Student updateStudent(Student student, String studentName, String semester, String course){

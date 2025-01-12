@@ -32,6 +32,7 @@ public class Main {
                     break;
                 case 4:
                     controller.printStudent();
+                    controller.reportQuantityCourse();
                     break;
                 case 5:
                     System.exit(0);
