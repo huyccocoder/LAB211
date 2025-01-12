@@ -15,7 +15,6 @@ public class StudentList {
 
     ArrayList<Student> listStudent;
     private int lastID;
-    HashMap<String, Integer> quantityCourseOfStudent = new HashMap<>();
 
     public StudentList() {
         listStudent = new ArrayList<>();
@@ -79,6 +78,7 @@ public class StudentList {
 
     // Quantity Course of Student
     public HashMap<String, Integer> getCountOfCourse(){
+    HashMap<String, Integer> quantityCourseOfStudent = new HashMap<>();
         for (Student student : listStudent) {
             quantityCourseOfStudent.put(student.getStudentName(), quantityCourseOfStudent.getOrDefault(student.getStudentName(), 0) + 1);
         }
@@ -102,7 +102,7 @@ public class StudentList {
     }
     
     public void printListStudent() {
-        System.out.printf("%-20s | %-10s\n", "== STUDENT NAME ==", "== Course ==");
+        System.out.printf("%-5s | %-20s | %-10s\n", "ID", "== STUDENT NAME ==", "== Course ==");
         for (Student student : listStudent) {
             System.out.println(student);
         }

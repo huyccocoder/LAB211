@@ -107,16 +107,19 @@ public class ManagerController {
         }
         
         Student updateStudent = findStudentById(id);
+        Student tmpStudent = updateStudent;
         if(updateStudent != null){
             String nameStudent = getData.inputString("Input newName: ", "([a-zA-Z\\s]+)");
             String semester = getData.checkInputSemester("Input newSemester: ");
             String course = getData.checkInputCourse("Input newCourse: ");
             
+            System.out.println(tmpStudent);
+
             Student update = list.updateStudent(updateStudent, nameStudent, semester, course);
 
             System.out.println("--------------- UPADTE ---------------");
             System.out.println("---ID " + id + " have NOT UPDATED---");
-            System.out.println(updateStudent);
+            System.out.println(tmpStudent);
             System.out.println("---ID " + id + " have UPDATED---");
             System.out.println(update);
         }
