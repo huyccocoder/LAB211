@@ -20,7 +20,6 @@ public class StudentList {
         listStudent = new ArrayList<>();
         listStudent.add(new Student(1, "huy", "summer", "java"));
         listStudent.add(new Student(1, "huy", "spring", "java"));
-        listStudent.add(new Student(1, "huy", "autumn", "java"));
         listStudent.add(new Student(2, "hai", "autumn", "C/C++"));
         listStudent.add(new Student(3, "cuowng", "spring", ".NET"));
         this.lastID = 3;

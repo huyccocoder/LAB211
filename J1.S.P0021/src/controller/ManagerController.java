@@ -118,8 +118,6 @@ public class ManagerController {
             Student update = list.updateStudent(updateStudent, nameStudent, semester, course);
 
             System.out.println("--------------- UPADTE ---------------");
-            System.out.println("---ID " + id + " have NOT UPDATED---");
-            System.out.println(tmpStudent);
             System.out.println("---ID " + id + " have UPDATED---");
             System.out.println(update);
         }
@@ -168,6 +166,7 @@ public class ManagerController {
         HashMap<String, Integer> report = list.getCountOfCourse();
 
         System.out.println("The report as below: ");
+        System.out.printf("%-10s | %-5s\n", "STUDENT", "COUNT QUANTITY");
         for (Entry<String, Integer> student : report.entrySet()) {
             System.out.printf("%-10s | %-5d\n", student.getKey(), student.getValue());
         }
