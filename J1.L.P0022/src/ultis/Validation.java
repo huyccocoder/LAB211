@@ -85,25 +85,5 @@ public class Validation {
             
             return input;
         } while (true);
-    }
-    
-    public String inputDate(String msg){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        dateFormat.setLenient(false);
-        do {
-            System.out.print(msg);
-            try {
-                Date inputDate = dateFormat.parse(sc.nextLine());
-                Date curDate = Calendar.getInstance().getTime();
-                if(inputDate.compareTo(curDate) > 0){
-                    System.err.println("Please input data before current data");
-                    continue;
-                }
-                
-                return dateFormat.format(inputDate);
-            } catch (Exception e) {
-                System.err.println("Please input valid date (dd-MM-yyyy): ");
-            }
-        } while (true);
-    }
+    }    
 }
