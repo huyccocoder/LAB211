@@ -15,6 +15,6 @@ public class Display {
         System.out.println("\t2. Fresher");
         System.out.println("\t3. Internship");
         System.out.println("\t4. Searching");
-        System.out.println("\t5. Exit");
+        System.out.println("\t5. Exit ");
     }
 }
