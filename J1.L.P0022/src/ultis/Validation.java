@@ -4,7 +4,6 @@
  */
 package ultis;
 
-import java.lang.reflect.Array;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,12 +18,23 @@ public class Validation {
 
     Scanner sc = new Scanner(System.in);
 
+    public String checkEmpty(String msg) {
+        while (true) {
+            System.out.print(msg);
+            String input = sc.nextLine();
+            if (input.isEmpty()) {
+                System.err.println("Please input non-empty string ");
+                continue;
+            }
+            return input;
+        }
+    }
+
     public int inputInt(String msg, int min, int max) {
         int result = 0;
         do {
-            System.out.print(msg);
             try {
-                String input = sc.nextLine();
+                String input = this.checkEmpty(msg);
                 if (checkInt(input) != -1) {
                     return checkInt(input);
                 }
@@ -74,12 +84,7 @@ public class Validation {
 
     public String inputString(String msg, String regex) {
         do {
-            System.out.print(msg);
-            String input = sc.nextLine();
-            if (input.isEmpty()) {
-                System.err.println("Please input non-empty string ");
-                continue;
-            }
+            String input = this.checkEmpty(msg);
 
             if (!input.matches(regex)) {
                 System.err.println("Please input string with correctly regex " + regex);
@@ -90,81 +95,65 @@ public class Validation {
         } while (true);
     }
 
-    public int inputBirthDate(String msg) {
-        int currYear = Year.now().getValue();
-        int result;
-        while (true) {
-            try {
-                System.out.print(msg);
-                String input = sc.nextLine();
-
-                if (checkInt(input) != -1) {
-                    return checkInt(input);
-                }
-
-                result = Integer.parseInt(input);
-                if (result % 4 == 0) {
-                    if (result >= 1900 && result <= currYear - 18) {
-                        return result;
-                    } else {
-                        throw new Exception();
-                    }
-                } else {
-                    throw new Exception();
-                }
-            } catch (Exception e) {
-                System.err.println(" Length of BirthDate is 4 character and range in 1900...(Current-18)");
-            }
-        }
-    }
-
     public String inputPhone(String msg) {
         while (true) {
             try {
-                System.out.print(msg);
-                String input = sc.nextLine();
-                if (input.isEmpty()) {
-                    System.err.println("Please input non-empty string ");
-                    continue;
-                }
-                
-                if(input.length() < 10){
+                String input = this.checkEmpty(msg);
+
+                if (input.length() < 10) {
                     System.err.println("String minimum 10 characters");
                     continue;
                 }
-                
+
                 if (!input.matches("^[0]\\d+$")) {
                     throw new Exception();
                 }
-                
+
                 return input;
             } catch (Exception e) {
                 System.err.println("Phone start is 0, Please input again");
             }
         }
     }
-    
+
     ArrayList<String> listEmail = new ArrayList<>(Arrays.asList("@gmail.com", "@fpt.edu.vn", "@yahoo.com"));
-    public String inputEmail(String msg){
-        while (true) {            
+
+    public String inputEmail(String msg) {
+        while (true) {
             try {
-                System.out.print(msg);
-                String input = sc.nextLine();
-                if (input.isEmpty()) {
-                    System.err.println("Please input non-empty string ");
-                    continue;
-                }
+                String input = this.checkEmpty(msg);
                 for (String string : listEmail) {
-                    if(input.endsWith(string)){
-                       return input; 
+                    if (input.endsWith(string)) {
+                        return input;
                     }
                 }
-                
+
                 throw new Exception();
             } catch (Exception e) {
                 System.err.println("Email invalid. Please input again");
                 System.out.println("List email valid: ");
                 for (String string : listEmail) {
+                    System.out.println(string);
+                }
+            }
+        }
+    }
+
+    ArrayList<String> listROG = new ArrayList<>(Arrays.asList("Excellence", "Good", "Fair", "Poor"));
+    public String inputRankOfGrade(String msg) {
+        while (true) {
+            try {
+                String input = this.checkEmpty(msg);
+                for (String string : listROG) {
+                    if(input.equalsIgnoreCase(string)){
+                        return input;
+                    }
+                }
+                throw new Exception();
+            } catch (Exception e) {
+                System.out.println("Rank invalid. Please input again");
+                System.out.println("List rank valid: ");
+                for (String string : listROG) {
                     System.out.println(string);
                 }
             }

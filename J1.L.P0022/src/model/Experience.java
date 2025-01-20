@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
@@ -11,6 +13,7 @@ package model;
 public class Experience extends Candidate{
     private int yoE;
     private String Proskill;
+    ArrayList<Experience> listExperience = new ArrayList<>();
 
     public Experience(int yoE, String Proskill, int candidateID, String firstName, String lastName, int birthDate, String address, String phone, String email, String candidateType) {
         super(candidateID, firstName, lastName, birthDate, address, phone, email, candidateType);
@@ -34,6 +37,8 @@ public class Experience extends Candidate{
         this.Proskill = Proskill;
     }
     
-    
+    public ArrayList<Experience> createEx(){
+        
+    }
     
 }
