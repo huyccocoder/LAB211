@@ -9,4 +9,21 @@ package controller;
  * @author Admin
  */
 public class CandidateController {
+    
+    public void addCandidate(){
+        
+    }
+    
+    public void createExperienceCandidate(){
+        
+    }
+    
+    public void createFresherCandidate(){
+        
+    }
+    
+    public void createInternCandidate(){
+        
+    }
+    
 }

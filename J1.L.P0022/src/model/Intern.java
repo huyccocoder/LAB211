@@ -8,6 +8,6 @@ package model;
  *
  * @author Admin
  */
-public class Intern {
+public class Intern extends Candidate{
     
 }
