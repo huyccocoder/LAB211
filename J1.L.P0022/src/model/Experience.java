@@ -13,9 +13,8 @@ import java.util.ArrayList;
 public class Experience extends Candidate{
     private int yoE;
     private String Proskill;
-    ArrayList<Experience> listExperience = new ArrayList<>();
 
-    public Experience(int yoE, String Proskill, int candidateID, String firstName, String lastName, int birthDate, String address, String phone, String email, String candidateType) {
+    public Experience(int yoE, String Proskill, int candidateID, String firstName, String lastName, int birthDate, String address, String phone, String email, int candidateType) {
         super(candidateID, firstName, lastName, birthDate, address, phone, email, candidateType);
         this.yoE = yoE;
         this.Proskill = Proskill;
@@ -36,9 +35,13 @@ public class Experience extends Candidate{
     public void setProskill(String Proskill) {
         this.Proskill = Proskill;
     }
-    
-    public ArrayList<Experience> createEx(){
-        
+
+    @Override
+    public String toString() {
+         return String.format("%-25s | %-5d | %-10s | %-11s | %-20s | %-2d",
+                        super.getFirstName() + " "  +  super.getLastName(), super.getBirthDate(), super.getAddress(), super.getPhone(), super.getEmail(), super.getCandidateType());
     }
+    
+    
     
 }

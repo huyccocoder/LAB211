@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.CandidateController;
+import java.util.ArrayList;
+import model.Candidate;
 import ultis.Validation;
 
 /**
@@ -11,28 +14,35 @@ import ultis.Validation;
  * @author Admin
  */
 public class main {
+
     public static void main(String[] args) {
         Display display = new Display();
         Validation check = new Validation();
-        
-//        display.displayCandidate();
-//        
-//        int choice = check.inputInt("Your choice: ", 1, 5);
-//        switch (choice) {
-//            case 1:
-//                
-//                break;
-//            case 2:
-//                break;
-//            case 3:
-//                break;
-//            case 4:
-//                break;
-//            case 5: 
-//                System.exit(0);
-//        }
+        CandidateController controller = new CandidateController();
 
-        String phone = check.inputEmail("Nhap vao: ");
-        System.out.println(phone);
+        ArrayList<Candidate> listCandidates = new ArrayList<>();
+
+        
+        while (true) {            
+            display.displayCandidate();
+            
+            int choice = check.inputInt("Your choice: ", 1, 5);
+            switch (choice) {
+                case 1:
+                    controller.createCandidate(listCandidates, 0);
+                    break;
+                case 2:
+                    controller.createCandidate(listCandidates, 1);
+                    break;
+                case 3:
+                    controller.createCandidate(listCandidates, 2);
+                    break;
+                case 4:
+                    controller.printListCandidate(listCandidates);
+                    break;
+                case 5:
+                    System.exit(0);
+            } 
+        }
     }
 }

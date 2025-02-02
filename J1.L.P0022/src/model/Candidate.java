@@ -16,9 +16,9 @@ public class Candidate {
     private String address;
     private String phone;
     private String email;
-    private String candidateType;
+    private int candidateType;
 
-    public Candidate(int candidateID, String firstName, String lastName, int birthDate, String address, String phone, String email, String candidateType) {
+    public Candidate(int candidateID, String firstName, String lastName, int birthDate, String address, String phone, String email, int candidateType) {
         this.candidateID = candidateID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,6 +28,8 @@ public class Candidate {
         this.email = email;
         this.candidateType = candidateType;
     }
+
+    
 
     public Candidate() {
     }
@@ -88,18 +90,18 @@ public class Candidate {
         this.email = email;
     }
 
-    public String getCandidateType() {
+    public int getCandidateType() {
         return candidateType;
     }
 
-    public void setCandidateType(String candidateType) {
+    public void setCandidateType(int candidateType) {
         this.candidateType = candidateType;
     }
 
     @Override
     public String toString() {
         return String.format("%-25s | %-5d | %-10s | %-11d | %-20s | %-2d",
-                        firstName + lastName, birthDate, address, phone, email, candidateID);
+                        firstName + lastName, birthDate, address, phone, email, candidateType);
     }
     
     
