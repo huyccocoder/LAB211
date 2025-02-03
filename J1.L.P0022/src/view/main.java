@@ -38,7 +38,7 @@ public class main {
                     controller.createCandidate(listCandidates, 2);
                     break;
                 case 4:
-                    controller.printListCandidate(listCandidates);
+                    controller.searchCandidate(listCandidates);
                     break;
                 case 5:
                     System.exit(0);

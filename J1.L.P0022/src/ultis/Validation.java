@@ -140,12 +140,13 @@ public class Validation {
     }
 
     ArrayList<String> listROG = new ArrayList<>(Arrays.asList("Excellence", "Good", "Fair", "Poor"));
+
     public String inputRankOfGrade(String msg) {
         while (true) {
             try {
                 String input = this.checkEmpty(msg);
                 for (String string : listROG) {
-                    if(input.equalsIgnoreCase(string)){
+                    if (input.equalsIgnoreCase(string)) {
                         return input;
                     }
                 }
@@ -156,6 +157,22 @@ public class Validation {
                 for (String string : listROG) {
                     System.out.println(string);
                 }
+            }
+        }
+    }
+
+    public String checkYesOrNo(String msg) {
+        while (true) {
+            try {
+                String input = this.checkEmpty(msg);
+                if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("n")){
+                    return input;
+                }
+                else{
+                    throw new Exception();
+                }
+            } catch (Exception e) {
+                System.err.println("Please input 'Y' OR 'N'");
             }
         }
     }

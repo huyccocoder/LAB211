@@ -38,10 +38,8 @@ public class Experience extends Candidate{
 
     @Override
     public String toString() {
-         return String.format("%-25s | %-5d | %-10s | %-11s | %-20s | %-2d",
-                        super.getFirstName() + " "  +  super.getLastName(), super.getBirthDate(), super.getAddress(), super.getPhone(), super.getEmail(), super.getCandidateType());
+         return String.format("%-25s \n",
+                        super.getFirstName() + " "  +  super.getLastName());
     }
-    
-    
     
 }
